@@ -49,3 +49,7 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://www.vburger.com.tw/sitemap.xml
+
+# AI 代理操作指引與 LLM 摘要
+# https://www.vburger.com.tw/agents.txt
+# https://www.vburger.com.tw/llms.txt

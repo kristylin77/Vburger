@@ -3,14 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RY146CX2V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RY146CX2V');
+</script>
 <title>店舖資訊｜Vburger 台中豐原概念店（地址・營業時間・電話）</title>
-<meta name="description" content="Vburger 台中豐原概念店：台中市豐原區三豐路二段180號，每日 06:00–14:00，電話 04-2522-1000。供應無麩質米漢堡、米食小點與天然飲品。">
+<meta name="description" content="Vburger 台中豐原概念店位於台中市豐原區三豐路二段180號，營業時間每日 06:00 至 14:00，電話 04-2522-1000。供應無麩質米漢堡、米食小點與天然飲品，適合早餐與早午餐時段。">
 <link rel="canonical" href="https://www.vburger.com.tw/stores.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vburger">
 <meta property="og:title" content="店舖資訊｜Vburger 台中豐原概念店">
-<meta property="og:description" content="Vburger 台中豐原概念店：台中市豐原區三豐路二段180號，每日 06:00–14:00。">
+<meta property="og:description" content="Vburger 台中豐原概念店位於台中市豐原區三豐路二段180號，營業時間每日 06:00 至 14:00，電話 04-2522-1000。">
 <meta property="og:url" content="https://www.vburger.com.tw/stores.html">
 <meta property="og:image" content="https://www.vburger.com.tw/assets/logo.png">
 <meta property="og:locale" content="zh_TW">
@@ -69,7 +78,26 @@
     "legalName": "我愛米米有限公司",
     "taxID": "20901100"
   },
-  "currenciesAccepted": "TWD"
+  "currenciesAccepted": "TWD",
+  "hasMenu": "https://www.vburger.com.tw/menu.html",
+  "potentialAction": [
+    {
+      "@type": "ViewAction",
+      "name": "查看菜單",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.vburger.com.tw/menu.html"
+      }
+    },
+    {
+      "@type": "CommunicateAction",
+      "name": "致電門市",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "tel:+886425221000"
+      }
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -89,7 +117,42 @@
     "addressRegion": "台中市",
     "addressCountry": "TW"
   },
-  "slogan": "Vburger｜一口米香，種下更好的未來"
+  "slogan": "Vburger｜一口米香，種下更好的未來",
+  "potentialAction": [
+    {
+      "@type": "CommunicateAction",
+      "name": "聯絡客服",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "tel:+886425221000",
+        "inLanguage": "zh-Hant-TW"
+      }
+    },
+    {
+      "@type": "ApplyAction",
+      "name": "申請加盟諮詢",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.vburger.com.tw/franchise.html#franchiseForm",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": {
+        "@type": "Reservation",
+        "name": "加盟顧問聯繫（3–5 個工作天內回覆）"
+      }
+    },
+    {
+      "@type": "CommunicateAction",
+      "name": "送出聯絡訊息",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.vburger.com.tw/contact.html#contactForm"
+      }
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -122,35 +185,56 @@
 }
 </script>
 <!-- ==========================================================================
-     數據追蹤設定（目前為停用狀態，正式上線後啟用）
+     數據追蹤
 
-     【步驟 1】Google Search Console 驗證
-       前往 https://search.google.com/search-console 新增資源，
-       選擇「HTML 標記」驗證方式，把取得的驗證碼填入下方 content 後移除註解。
+     ✅ Google Analytics 4（G-0RY146CX2V）已安裝並啟用，位於本檔案標頭區開頭。
+        單檔版另有 SPA 路由追蹤，切換頁面時會送出 page_view 事件。
 
-     【步驟 2】Google Analytics 4
-       前往 https://analytics.google.com 建立資源，取得評估 ID（G-XXXXXXXXXX），
-       替換下方的 G-XXXXXXXXXX 後移除註解。
+     ⬜ Google Search Console 尚未驗證。
+        前往 https://search.google.com/search-console 新增資源後，
+        選擇「HTML 標記」驗證方式，將驗證碼填入下方 content 並移除註解符號。
 
      注意：Claude 發布的網址（claude.ai/public/artifacts/...）無法通過
      Search Console 網域驗證，需使用自有網域或 Netlify / Cloudflare Pages
-     等可驗證的主機才能追蹤搜尋成效。
+     等可驗證的主機。
      ========================================================================== -->
 
-<!-- Google Search Console 驗證
+<!-- Google Search Console 驗證（取得驗證碼後移除本行註解符號）
 <meta name="google-site-verification" content="請填入驗證碼">
 -->
 
-<!-- Google Analytics 4
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vburger 在台中哪裡？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vburger 位於台中市豐原區三豐路二段180號，是品牌首間概念店。營業時間為每日 06:00 至 14:00，供應無麩質米漢堡、米食小點與天然飲品。訂位或詢問請撥 04-2522-1000。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "台中豐原有無麩質餐廳嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有。Vburger 台中豐原概念店以台灣米取代小麥麵粉製作漢堡包，主餐皆以無麩質為設計原則，是豐原區少數提供無麩質選項的餐飲店家。惟門市為共用廚房，無法完全排除微量麩質交叉接觸。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vburger 幾點開始營業？可以吃早餐嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vburger 每日清晨 6 點開始營業，下午 2 點結束，涵蓋早餐與午餐時段。米漢堡份量適合作為早餐或早午餐，搭配米食小點與天然飲品皆可。"
+      }
+    }
+  ]
+}
 </script>
--->
-
 </head>
 <body>
 <a href="#main" class="skip-link">跳到主要內容</a>
@@ -223,11 +307,11 @@
       <div class="store-card reveal">
         <div class="store-row"><span class="k">Store</span><span class="v">Vburger 品牌概念店</span></div>
         <div class="store-row"><span class="k">Address</span><span class="v">台中市豐原區三豐路二段180號</span></div>
-        <div class="store-row"><span class="k">Hours</span><span class="v">每日 06:00–14:00</span></div>
-        <div class="store-row"><span class="k">Phone</span><span class="v"><a href="tel:0425221000">04-2522-1000</a></span></div>
+        <div class="store-row"><span class="k">Hours</span><span class="v"><time datetime="Mo-Su 06:00-14:00">每日 06:00–14:00</time></span></div>
+        <div class="store-row"><span class="k">Phone</span><span class="v"><a href="tel:+886425221000" data-agent-action="call-store">04-2522-1000</a></span></div>
         <div class="store-btns">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%B1%90%E5%8E%9F%E5%8D%80%E4%B8%89%E8%B1%90%E8%B7%AF%E4%BA%8C%E6%AE%B5180%E8%99%9F" target="_blank" rel="noopener" class="btn btn-primary">導航前往</a>
-          <a href="#" class="btn btn-ghost">立即訂餐</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%B1%90%E5%8E%9F%E5%8D%80%E4%B8%89%E8%B1%90%E8%B7%AF%E4%BA%8C%E6%AE%B5180%E8%99%9F" target="_blank" rel="noopener" class="btn btn-primary" data-agent-action="get-directions">導航前往</a>
+          <a href="#" class="btn btn-ghost" data-agent-action="order-online" aria-disabled="true" title="示範網站，未開放線上訂餐">立即訂餐</a>
           <a href="menu.html" class="btn btn-ghost">查看菜單</a>
         </div>
       </div>
@@ -256,7 +340,7 @@
         <tr><th scope="row">公司登記名稱</th><td>我愛米米有限公司</td></tr>
         <tr><th scope="row">統一編號</th><td>20901100</td></tr>
         <tr><th scope="row">門市地址</th><td>台中市豐原區三豐路二段180號</td></tr>
-        <tr><th scope="row">客服電話</th><td><a href="tel:0425221000">04-2522-1000</a></td></tr>
+        <tr><th scope="row">客服電話</th><td><a href="tel:+886425221000">04-2522-1000</a></td></tr>
         <tr><th scope="row">營業時間</th><td>每日 06:00–14:00</td></tr>
         <tr><th scope="row">產品責任險</th><td>華南產物產品責任保險｜1402 第 111010116 號</td></tr>
       </tbody>
@@ -278,6 +362,28 @@
       </div>
     </div>
     <p style="margin-top:30px;"><a href="franchise.html" class="btn btn-gold btn-sm">了解加盟合作 →</a></p>
+  </div>
+</section>
+
+<section style="background:var(--cream);" id="stores-aeo">
+  <div class="wrap-narrow">
+    <div class="label-row"><span class="num">QUICK ANSWERS</span><span class="rule"></span></div>
+    <h2 class="section-title" style="font-size:1.5rem;">快速解答</h2>
+    <div class="aeo">
+      <div class="aeo-item">
+        <h2>Vburger 在台中哪裡？</h2>
+        <p class="aeo-answer">Vburger 位於<strong>台中市豐原區三豐路二段180號</strong>，是品牌首間概念店。營業時間為每日 06:00 至 14:00，供應無麩質米漢堡、米食小點與天然飲品。訂位或詢問請撥 04-2522-1000。</p>
+        <p class="aeo-more">完整交通與地圖請見下方<a data-scroll="main">店舖資訊</a>。</p>
+      </div>
+      <div class="aeo-item">
+        <h2>台中豐原有無麩質餐廳嗎？</h2>
+        <p class="aeo-answer">有。Vburger 台中豐原概念店以台灣米取代小麥麵粉製作漢堡包，主餐皆以無麩質為設計原則，是豐原區少數提供無麩質選項的餐飲店家。惟門市為共用廚房，無法完全排除微量麩質交叉接觸。</p>
+      </div>
+      <div class="aeo-item">
+        <h2>Vburger 幾點開始營業？可以吃早餐嗎？</h2>
+        <p class="aeo-answer">Vburger 每日<strong>清晨 6 點開始營業，下午 2 點結束</strong>，涵蓋早餐與午餐時段。米漢堡份量適合作為早餐或早午餐，搭配米食小點與天然飲品皆可。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -328,7 +434,7 @@
       </dl>
       <dl>
         <dt>客服電話</dt>
-        <dd><a href="tel:0425221000">04-2522-1000</a>（每日 06:00–14:00）</dd>
+        <dd><a href="tel:+886425221000">04-2522-1000</a>（每日 06:00–14:00）</dd>
       </dl>
       <dl>
         <dt>產品責任險</dt>

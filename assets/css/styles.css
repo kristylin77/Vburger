@@ -727,3 +727,44 @@ header.site-header{top:var(--banner-h, 0px);}
 .page-meta{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:18px; font-size:12.5px;
   color:#8a8a80; font-family:'Space Mono';}
 .page-meta span{display:inline-flex; align-items:center; gap:6px;}
+
+/* ==========================================================================
+   AEO (Answer Engine Optimization)
+   問句標題 + 40–60 字直答，是精選摘要與 AI 直接引用的主要來源。
+   ========================================================================== */
+.aeo{margin:36px 0; display:grid; gap:22px;}
+.aeo-item{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:26px 30px;}
+.aeo-item h2, .aeo-item h3{font-size:17.5px; line-height:1.5; margin:0 0 12px; color:var(--ink);
+  display:flex; gap:10px; align-items:flex-start;}
+.aeo-item h2::before, .aeo-item h3::before{content:'Q'; font-family:'Space Mono'; font-size:12px;
+  color:var(--gold-deep); background:rgba(217,164,65,0.14); border-radius:5px;
+  padding:3px 8px; flex-shrink:0; margin-top:3px;}
+.aeo-answer{font-size:15px; line-height:1.95; color:#33332f; margin:0;}
+.aeo-answer strong{color:var(--ink);}
+.aeo-more{margin:12px 0 0; font-size:13.5px; line-height:1.85; color:#6b6b64;}
+.aeo-more a{color:var(--green-deep); text-decoration:underline; text-underline-offset:3px;}
+
+/* single lead answer directly under a page hero */
+.aeo-lead{margin-top:28px; max-width:780px; padding:24px 28px; background:var(--white);
+  border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:4px;}
+.aeo-lead h2{font-size:16.5px; margin:0 0 10px; line-height:1.5;}
+.aeo-lead p{font-size:15px; line-height:1.95; color:#33332f; margin:0;}
+
+/* --- franchise page feature video (vertical 9:16) --- */
+.fr-video{max-width:420px; margin:36px auto 0; position:relative; border-radius:20px; overflow:hidden;
+  border:1px solid var(--line); background:var(--ink);
+  box-shadow:0 26px 50px -30px rgba(20,20,18,0.45);}
+.fr-video video{width:100%; height:auto; display:block;}
+.fr-video-still{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+  transition:opacity .35s ease;}
+.fr-video-still.hide{opacity:0; pointer-events:none;}
+.fr-video-play{position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+  background:rgba(20,20,18,0.3); border:none; cursor:pointer; padding:0; z-index:3;}
+.fr-video-play.show{display:flex;}
+.fr-video-play span{width:62px; height:62px; border-radius:50%; background:rgba(245,241,232,0.94);
+  display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  transition:transform .2s ease;}
+.fr-video-play:hover span{transform:scale(1.07);}
+.fr-video-play svg{width:22px; height:22px; margin-left:4px; fill:var(--ink);}
+.fr-video-caption{margin:14px auto 0; max-width:420px; font-size:13px; color:#6b6b64;
+  line-height:1.75; text-align:center;}

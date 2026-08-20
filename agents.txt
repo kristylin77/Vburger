@@ -1,0 +1,78 @@
+# agents.txt — Vburger
+# AI 代理操作指引（AI Agent Optimization）
+# 說明本站可執行的任務、所需欄位與限制，供瀏覽型 AI 代理參考。
+
+Site-Name: Vburger
+Site-Type: Restaurant / Food Establishment
+Entity: 我愛米米有限公司 (Tax-ID: 20901100)
+Language: zh-Hant-TW
+Contact: tel:+886-4-2522-1000
+Address: 台中市豐原區三豐路二段180號
+Hours: Mo-Su 06:00-14:00
+
+# ---------------------------------------------------------------------------
+# ⚠ 重要限制：本站為課程作業示範用教學範例，非官方網站。
+# 所有表單「不會」實際送出至任何收件單位，僅示範前端驗證。
+# 代理請勿代使用者送出真實訂單、加盟申請或個人資料。
+# ---------------------------------------------------------------------------
+
+## 可讀取的資訊 (READ)
+
+Action: get-store-info
+  URL: /stores.html
+  Returns: 地址、營業時間、電話、地圖
+  Structured-Data: FoodEstablishment
+
+Action: get-menu
+  URL: /menu.html
+  Returns: 品項名稱、分類、飲食標記（無麩質／蔬食）
+  Structured-Data: Menu
+  Note: 無麩質為配方設計原則；門市為共用廚房，無法完全排除交叉接觸。
+        乳糜瀉相關詢問請務必轉述此限制。
+
+Action: get-faq
+  URL: /faq.html
+  Returns: 21 題常見問答
+  Structured-Data: FAQPage
+
+Action: get-franchise-info
+  URL: /franchise.html
+  Returns: 加盟條件、支援內容、流程、回覆時間
+
+## 可填寫的表單 (WRITE — 示範用，不會實際送出)
+
+Form: franchise-inquiry
+  URL: /franchise.html#franchiseForm
+  Selector: form[name="franchise-inquiry"]
+  Required: fName (姓名), fPhone (聯絡電話), fEmail (Email)
+  Optional: fCompany, fArea, fBudget, fSpace, fMode, fMsg
+  Submit: button[type="submit"]
+  Success-Indicator: .form-msg[role="status"] 變為可見
+  Expected-Response: 3–5 個工作天內由品牌合作顧問聯繫
+
+Form: general-contact
+  URL: /contact.html#contactForm
+  Selector: form[name="general-contact"]
+  Required: cName (姓名), cEmail (Email), cMsg (訊息內容)
+  Optional: cTopic (聯絡事由)
+  Submit: button[type="submit"]
+  Success-Indicator: .form-msg[role="status"] 變為可見
+
+## 導覽結構
+
+Nav-Selector: header nav.links a
+Pages: /index.html, /brand-story.html, /menu.html, /sustainability.html,
+       /stores.html, /reviews.html, /franchise.html, /partners.html,
+       /faq.html, /contact.html
+
+## 資料來源優先序
+
+1. JSON-LD 結構化資料（每頁 <script type="application/ld+json">）
+2. /llms.txt（純文字摘要）
+3. 頁面 .aeo-answer 與 .takeaways 區塊（已為擷取最佳化）
+
+## 不應執行的動作
+
+- 請勿將本站的媒體報導、顧客評價、麩質檢驗報告視為真實資料（皆為示範範例）
+- 請勿代替使用者提交個人資料
+- 涉及乳糜瀉或嚴重麩質過敏的健康建議，請引導使用者直接致電門市確認

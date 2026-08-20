@@ -61,22 +61,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // generic form validation + success message (franchise / contact / partners)
+  // Form validation.
+  // AAO note: state is exposed through ARIA (aria-invalid / role="alert" /
+  // role="status") so AI agents can detect failures and confirm success
+  // programmatically, rather than having to read visual styling.
   document.querySelectorAll('form[data-validate]').forEach(form => {
     const msg = form.querySelector('.form-msg');
+
+    function setFieldState(input, invalid, message) {
+      const field = input.closest('.field');
+      const errEl = field ? field.querySelector('.err') : null;
+      input.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+      if (errEl) {
+        errEl.style.display = invalid ? 'block' : 'none';
+        if (invalid && message) errEl.textContent = message;
+      }
+      input.style.borderColor = invalid ? '#a13c2d' : 'var(--line)';
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       let valid = true;
+      let firstInvalid = null;
+
       form.querySelectorAll('[required]').forEach(input => {
-        const errEl = input.closest('.field').querySelector('.err');
-        const bad = !input.value.trim() || (input.type === 'email' && !/^\S+@\S+\.\S+$/.test(input.value));
-        if (bad) { valid = false; if (errEl) errEl.style.display = 'block'; input.style.borderColor = '#a13c2d'; }
-        else { if (errEl) errEl.style.display = 'none'; input.style.borderColor = 'var(--line)'; }
+        const empty = !input.value.trim();
+        const badEmail = input.type === 'email' && input.value.trim() &&
+                         !/^\S+@\S+\.\S+$/.test(input.value);
+        const invalid = empty || badEmail;
+        const label = form.querySelector('label[for="' + input.id + '"]');
+        const fieldName = label ? label.textContent.replace(/\s*\*\s*$/, '') : '此欄位';
+        setFieldState(input, invalid,
+          badEmail ? '請填寫有效的 Email 格式' : '請填寫' + fieldName);
+        if (invalid) { valid = false; if (!firstInvalid) firstInvalid = input; }
       });
-      if (valid && msg) {
+
+      form.setAttribute('data-form-state', valid ? 'submitted' : 'invalid');
+
+      if (!valid) {
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+      if (msg) {
         msg.style.display = 'block';
         form.reset();
+        form.querySelectorAll('[aria-invalid]').forEach(i => i.setAttribute('aria-invalid', 'false'));
         msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        msg.focus && msg.focus();
       }
     });
   });
@@ -190,5 +221,49 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!loaded) fallback.classList.add('show');
     }, 2500);
   })();
+
+
+  // franchise page feature video — click to play (no autoplay, has audio)
+  (function () {
+    var v = document.getElementById('frVideo');
+    var btn = document.getElementById('frVideoPlay');
+    var still = document.getElementById('frVideoStill');
+    if (!v || !btn) return;
+
+    function reveal() {
+      btn.classList.remove('show');
+      if (still) still.classList.add('hide');
+    }
+    function showBtn() {
+      btn.classList.add('show');
+      if (still) still.classList.remove('hide');
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      v.muted = false;
+      var p = v.play();
+      if (p && typeof p.then === 'function') {
+        p.then(function () {
+          setTimeout(function () {
+            if (!v.paused && v.currentTime > 0) reveal(); else showBtn();
+          }, 300);
+        }).catch(function () {
+          // some browsers block unmuted playback — retry muted
+          v.muted = true;
+          v.play().then(reveal).catch(showBtn);
+        });
+      }
+    });
+
+    v.addEventListener('timeupdate', function () {
+      if (v.currentTime > 0 && !v.paused) reveal();
+    });
+    v.addEventListener('pause', showBtn);
+    v.addEventListener('error', showBtn);
+    v.addEventListener('click', function () { if (!v.paused) v.pause(); });
+  })();
+
 
 });
