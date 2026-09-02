@@ -1,0 +1,55 @@
+# Vburger — robots.txt
+User-agent: *
+Allow: /
+
+# ---------------------------------------------------------------------------
+# 生成式 AI / LLM 爬蟲（GEO：讓 AI 能讀取並引用網站內容）
+# 這些 user-agent 預設不一定被允許，明確開放可提高被 AI 引用的機會。
+# 若日後不希望內容被 AI 訓練使用，將對應項目改為 Disallow: / 即可。
+# ---------------------------------------------------------------------------
+
+# OpenAI（ChatGPT 搜尋與引用）
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+
+# Anthropic（Claude）
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Google 生成式功能（AI Overviews / Gemini）
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot / Bing
+User-agent: bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://www.vburger.com.tw/sitemap.xml
+
+# AI 代理操作指引與 LLM 摘要
+# https://www.vburger.com.tw/agents.txt
+# https://www.vburger.com.tw/llms.txt
